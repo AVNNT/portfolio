@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Portfolio of @howaboutatip (AVN) — games and software. DonDownload, a Windows download manager, and QuickSketch, an offline reference board and gesture drawing trainer.">
+<meta name="description" content="Portfolio of @howaboutatip (AVN) — desktop apps and tools. DonDownload, a Windows download manager, and QuickSketch, an offline reference board and gesture drawing trainer.">
 <meta property="og:title" content="@howaboutatip · Portfolio">
-<meta property="og:description" content="Games and software by @howaboutatip (AVN) — DonDownload (Windows download manager) and QuickSketch (offline reference board & gesture drawing trainer). Projects over words.">
+<meta property="og:description" content="Desktop apps and tools by @howaboutatip (AVN) — DonDownload (Windows download manager) and QuickSketch (offline reference board & gesture drawing trainer). Projects over words.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://avnnt.github.io/portfolio/">
 <meta property="og:image" content="https://avnnt.github.io/portfolio/og-card.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="@howaboutatip — games and software, projects over words">
+<meta property="og:image:alt" content="@howaboutatip — desktop apps and tools, projects over words">
 <meta property="og:site_name" content="@howaboutatip">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="@howaboutatip · Portfolio">
-<meta name="twitter:description" content="Games and software by @howaboutatip (AVN) — DonDownload (Windows download manager) and QuickSketch (offline reference board & gesture drawing trainer). Projects over words.">
+<meta name="twitter:description" content="Desktop apps and tools by @howaboutatip (AVN) — DonDownload (Windows download manager) and QuickSketch (offline reference board & gesture drawing trainer). Projects over words.">
 <meta name="twitter:image" content="https://avnnt.github.io/portfolio/og-card.png">
-<meta name="twitter:image:alt" content="@howaboutatip — games and software, projects over words">
+<meta name="twitter:image:alt" content="@howaboutatip — desktop apps and tools, projects over words">
 <meta name="theme-color" content="#F6F4EF" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141412" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://avnnt.github.io/portfolio/">
@@ -150,7 +150,9 @@
   .arena a::before { content: "[" counter(arena) "] "; color: var(--blue); }
   .arena a:hover, .arena a:focus-visible { color: var(--red); }
   .arena h3 { display: inline; color: var(--ink); }
-  .arena a:hover h3, .arena a:focus-visible h3 { color: var(--red); }
+  .arena h3::after { content: " \2197"; color: var(--blue); font-weight: 400; }
+  .arena a:hover h3, .arena a:focus-visible h3,
+  .arena a:hover h3::after, .arena a:focus-visible h3::after { color: var(--red); }
   .arena p { margin-top: 0.25rem; }
 
   /* Project screenshot: plain, fits the monospace frame */
@@ -186,13 +188,13 @@
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
-<button class="theme-btn" id="theme-btn" type="button" aria-pressed="false" aria-label="Switch to dark mode">🌙</button>
+<button class="theme-btn" id="theme-btn" type="button" aria-pressed="false" aria-label="Switch to dark mode">[dark]</button>
 
 <header>
   <!-- SIGNATURE: headline types itself character by character via JS; without JS the full text is there instantly -->
-  <h1 id="hero-headline">@howaboutatip<span class="cursor" id="hero-cursor">&#9608;</span></h1>
-  <p class="subtitle">Games and software &mdash; projects over words.</p>
-  <p>Self-taught &mdash; I build software and games. This page is my web project:
+  <h1 id="hero-headline" aria-label="@howaboutatip">@howaboutatip<span class="cursor" id="hero-cursor" aria-hidden="true">&#9608;</span></h1>
+  <p class="subtitle">Desktop apps and tools &mdash; projects over words.</p>
+  <p>Self-taught &mdash; I build software, tools, and games (also as AVN / @howaboutavndev). This page is my web project:
      plain HTML, CSS and a little JS, hosted on GitHub Pages.</p>
 </header>
 
@@ -208,13 +210,13 @@
           <h3>DonDownload</h3>
           <p>A fast, lightweight download manager for Windows.</p>
           <p class="small">Electron &middot; React &middot; TypeScript &middot; MIT &middot; v1.3.3</p>
-          <img class="shot" src="assets/dondownload.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Screenshot of the DonDownload main window: download list with progress bars and a details sidebar">
+          <img class="shot" src="assets/dondownload.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Screenshot of the DonDownload main window showing a list of active, queued, and completed downloads with progress bars and speeds">
         </a>
       </li>
       <li>
         <a href="https://howaboutavndev.itch.io/quicksketch" target="_blank" rel="noopener">
           <h3>QuickSketch</h3>
-          <p>QuickSketch is an offline reference board and gesture drawing trainer.</p>
+          <p>An offline reference board and gesture drawing trainer.</p>
           <p class="small">Godot 4.7 &middot; GDScript &middot; on itch.io</p>
           <img class="shot" src="assets/quicksketch.webp" width="1200" height="675" loading="lazy" decoding="async" alt="QuickSketch cover image: an infinite reference board with pose photographs and a gesture-drawing timer">
         </a>
@@ -250,7 +252,7 @@
 </main>
 
 <footer>
-  <p class="small">&copy; <span id="year">2025</span> @howaboutatip</p>
+  <p class="small">&copy; <span id="year">2026</span> @howaboutatip</p>
 </footer>
 
 <script>
@@ -270,13 +272,12 @@
     var full = textNode.nodeValue;
     if (full.indexOf(target) !== 0) return;
 
-    headline.removeChild(textNode);
-    headline.insertBefore(cursor, null);
+    textNode.nodeValue = '';
     var pos = 0;
     var timer = window.setInterval(function () {
       if (pos < target.length) {
-        headline.insertBefore(document.createTextNode(target.charAt(pos)), cursor);
         pos += 1;
+        textNode.nodeValue = target.slice(0, pos);
       } else {
         window.clearInterval(timer);
       }
@@ -289,7 +290,7 @@
     if (!btn) return;
     function syncBtn() {
       var dark = document.documentElement.dataset.theme === 'dark';
-      btn.textContent = dark ? '☀️' : '🌙';
+      btn.textContent = dark ? '[light]' : '[dark]';
       btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
       btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
     }
