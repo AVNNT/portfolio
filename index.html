@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Portfolio of @howaboutatip (AVN) — web, desktop & games. DonDownload, a Windows download manager, and QuickSketch, an offline reference board and gesture drawing trainer.">
+<meta property="og:title" content="@howaboutatip · Portfolio">
+<meta property="og:description" content="Web, desktop & games by @howaboutatip (AVN) — DonDownload (Windows download manager) and QuickSketch (offline reference board & gesture drawing trainer). Projects over words.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avnnt.github.io/portfolio/">
+<meta property="og:image" content="https://avnnt.github.io/portfolio/og-card.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://avnnt.github.io/portfolio/">
+<title>@howaboutatip · Portfolio</title>
+<script>
+  // Set theme before first paint (no flash): stored choice > system setting
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'dark' && t !== 'light') {
+      t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.dataset.theme = t;
+  } catch (e) { document.documentElement.dataset.theme = 'light'; }
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F6F4EF'/%3E%3Crect x='6' y='8' width='6' height='14' fill='%23C62828'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #F6F4EF;
+    --ink: #1C1C1C;
+    --blue: #2464B0;
+    --red: #C62828;
+    --mono: "JetBrains Mono", "Consolas", "Courier New", monospace;
+  }
+
+  /* Dark mode: manual toggle (data-theme="dark") or system preference */
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #141412;
+    --ink: #E9E7DF;
+    --blue: #82AAFF;
+    --red: #FF6B5B;
+  }
+
+  ::selection { background: var(--red); color: var(--paper); }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { font-size: 100%; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.25rem 3rem;
+    overflow-wrap: break-word;
+  }
+
+  /* Skip link for keyboard/screen readers */
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.4rem 0.8rem;
+    z-index: 20;
+  }
+  .skip:focus { left: 0.5rem; top: 0.5rem; }
+
+  /* Theme toggle, top right */
+  .theme-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
+    font-family: var(--mono);
+    font-size: 0.8125rem;
+    background: var(--paper);
+    color: var(--blue);
+    border: 2px solid var(--ink);
+    padding: 0.25rem 0.7rem;
+    cursor: pointer;
+  }
+  .theme-btn:hover { color: var(--red); }
+
+  h1 { font-size: clamp(1.4rem, 5vw, 1.9rem); line-height: 1.35; margin-bottom: 0.5rem; overflow-wrap: anywhere; }
+  h2 { font-size: 1rem; margin-bottom: 0.75rem; }
+  h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+  p, li { font-size: 1rem; }
+  .small { font-size: 0.8125rem; }
+
+  .subtitle { color: var(--blue); margin-bottom: 1.25rem; }
+
+  .cursor { color: var(--red); animation: blinken 1s steps(1) infinite; }
+  @keyframes blinken { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  header { margin-bottom: 1.5rem; }
+
+  .rule {
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 2.25rem 0;
+    user-select: none;
+    color: var(--ink);
+  }
+
+  a { color: var(--blue); text-decoration-thickness: 0.1em; text-underline-offset: 0.2em; }
+  a:visited { color: var(--blue); }
+  a:hover { color: var(--red); }
+
+  :focus-visible {
+    outline: 3px solid var(--red);
+    outline-offset: 2px;
+    color: var(--red);
+  }
+
+  section { margin-bottom: 1rem; }
+
+  /* Project list: numbered "arena", entries are real links */
+  .arena { list-style: none; counter-reset: arena; }
+  .arena li { counter-increment: arena; }
+  .arena a {
+    display: block;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.9rem 0.75rem 0.9rem 0;
+    border-bottom: 1px dashed var(--blue);
+  }
+  .arena a::before { content: "[" counter(arena) "] "; color: var(--blue); }
+  .arena a:hover, .arena a:focus-visible { color: var(--red); }
+  .arena h3 { display: inline; color: var(--ink); }
+  .arena a:hover h3, .arena a:focus-visible h3 { color: var(--red); }
+  .arena p { margin-top: 0.25rem; }
+  .arena .url { color: var(--blue); font-size: 0.8125rem; word-break: break-all; }
+
+  /* Project screenshot: plain, fits the monospace frame */
+  .shot {
+    display: block;
+    margin-top: 0.75rem;
+    border: 2px solid var(--ink);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+  .chips li {
+    border: 1px solid var(--ink);
+    padding: 0.15rem 0.6rem;
+    font-size: 0.8125rem;
+  }
+
+  footer { margin-top: 2.5rem; border-top: 2px solid var(--ink); padding-top: 1rem; }
+
+  @media (max-width: 480px) {
+    body { padding: 2.5rem 1rem 2rem; }
+    /* toggle must not cover scrolling content on small screens */
+    .theme-btn { position: absolute; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<button class="theme-btn" id="theme-btn" type="button" aria-pressed="false" aria-label="Switch to dark mode">🌙</button>
+
+<header>
+  <!-- SIGNATURE: headline types itself character by character via JS; without JS the full text is there instantly -->
+  <h1 id="hero-headline">@howaboutatip<span class="cursor" id="hero-cursor">&#9608;</span></h1>
+  <p class="subtitle">Web, desktop &amp; games, self-taught &mdash; projects over words.</p>
+  <p>I build web, desktop and game projects hands-on &mdash; this page is the web one:
+     pure HTML, CSS and a little JS, hostable as a single file on GitHub Pages.</p>
+</header>
+
+<div class="rule" aria-hidden="true">================================================================================</div>
+
+<main id="main">
+
+  <section aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+    <ol class="arena">
+      <li>
+        <a href="https://github.com/AVNNT/dondownload" target="_blank" rel="noopener">
+          <h3>DonDownload</h3>
+          <span class="url">github.com/AVNNT/dondownload</span>
+          <p>A fast, lightweight download manager for Windows.</p>
+          <p class="small">Electron &middot; React &middot; TypeScript &middot; MIT &middot; v1.3.3</p>
+          <img class="shot" src="https://raw.githubusercontent.com/AVNNT/dondownload/master/docs/screenshots/main-1280x800.png" width="1280" height="800" loading="lazy" alt="Screenshot of the DonDownload main window: download list with progress bars and a details sidebar">
+        </a>
+      </li>
+      <li>
+        <a href="https://howaboutavndev.itch.io/quicksketch" target="_blank" rel="noopener">
+          <h3>QuickSketch</h3>
+          <span class="url">howaboutavndev.itch.io/quicksketch</span>
+          <p>QuickSketch is an offline reference board and gesture drawing trainer.</p>
+          <p class="small">Godot 4.7 &middot; GDScript &middot; on itch.io</p>
+          <img class="shot" src="https://img.itch.zone/aW1hZ2UvNDQyNjUwMS8zMjE1NzY4MC5wbmc=/original/xMLx8s.png" width="1920" height="1080" loading="lazy" alt="QuickSketch cover image: an infinite reference board with pose photographs and a gesture-drawing timer">
+        </a>
+      </li>
+    </ol>
+  </section>
+
+  <div class="rule" aria-hidden="true">--------------------------------------------------------------------------------</div>
+
+  <section aria-labelledby="about-title">
+    <h2 id="about-title">About me</h2>
+    <p>Self-taught &mdash; I build software and games.</p>
+  </section>
+
+  <div class="rule" aria-hidden="true">--------------------------------------------------------------------------------</div>
+
+  <section aria-labelledby="skills-title">
+    <h2 id="skills-title">Skills</h2>
+    <ul class="chips" aria-label="Skills">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>GDScript (Godot 4.7)</li>
+      <li>JavaScript</li>
+      <li>TypeScript</li>
+      <li>React</li>
+      <li>Electron</li>
+      <li>Git &amp; GitHub</li>
+      <li>Accessibility</li>
+    </ul>
+    <p class="small">Currently learning: C.</p>
+  </section>
+
+  <div class="rule" aria-hidden="true">================================================================================</div>
+
+  <section aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact</h2>
+    <p>Project, question, or just want to chat? I usually reply within 24 hours &mdash; on X or by email:</p>
+    <p><a href="https://x.com/howaboutavndev" target="_blank" rel="noopener">x.com/howaboutavndev</a></p>
+    <!-- spam-safe: address is only assembled at runtime via JS; without JS it stays readable as (at)/(dot) text -->
+    <p id="email-line">atipvietnghiem (at) gmail (dot) com</p>
+    <p><a href="https://github.com/AVNNT" target="_blank" rel="noopener">github.com/AVNNT</a></p>
+  </section>
+
+</main>
+
+<footer>
+  <p class="small">&copy; <span id="year">2025</span> @howaboutatip &mdash; <span aria-hidden="true">&#9608;</span> Set in plain HTML/CSS/JS (monospace).</p>
+</footer>
+
+<script>
+  // Typewriter for the headline only; full text is visible without JS.
+  (function () {
+    var headline = document.getElementById('hero-headline');
+    var cursor = document.getElementById('hero-cursor');
+    if (!headline || !cursor) return;
+
+    var target = '@howaboutatip'; // only the handle types itself; the rest stays static
+    var reduced = false;
+    try { reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduced) return; // full text + static cursor stay
+
+    var textNode = headline.firstChild;
+    if (!textNode || textNode.nodeType !== 3) return;
+    var full = textNode.nodeValue;
+    if (full.indexOf(target) !== 0) return;
+
+    headline.removeChild(textNode);
+    headline.insertBefore(cursor, null);
+    var pos = 0;
+    var timer = window.setInterval(function () {
+      if (pos < target.length) {
+        headline.insertBefore(document.createTextNode(target.charAt(pos)), cursor);
+        pos += 1;
+      } else {
+        window.clearInterval(timer);
+      }
+    }, 70);
+  })();
+
+  // Theme toggle: switches data-theme and remembers the choice in localStorage
+  (function () {
+    var btn = document.getElementById('theme-btn');
+    if (!btn) return;
+    function syncBtn() {
+      var dark = document.documentElement.dataset.theme === 'dark';
+      btn.textContent = dark ? '☀️' : '🌙';
+      btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function () {
+      var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      syncBtn();
+    });
+    syncBtn();
+  })();
+
+  // Email link: assembled at runtime so plain-text scrapers don't harvest the address.
+  // Without JS the (at)/(dot) text above stays as-is — still readable for humans.
+  (function () {
+    var line = document.getElementById('email-line');
+    if (!line) return;
+    var user = 'atipviet' + 'nghiem';
+    var host = 'gmail' + '.com';
+    var addr = user + '@' + host;
+    var a = document.createElement('a');
+    a.href = 'mailto:' + addr;
+    a.textContent = addr;
+    line.textContent = '';
+    line.appendChild(a);
+  })();
+
+  // Year in footer
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

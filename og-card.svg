@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F6F4EF"/>
+  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#1C1C1C" stroke-width="4"/>
+  <rect x="80" y="150" width="72" height="200" fill="#C62828"/>
+  <text x="190" y="300" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="88" font-weight="bold" fill="#1C1C1C">@howaboutatip</text>
+  <text x="192" y="390" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="34" fill="#2464B0">web · desktop · games — projects over words</text>
+  <text x="192" y="500" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="26" fill="#1C1C1C">DonDownload · QuickSketch · currently learning C</text>
+  <text x="192" y="560" font-family="'JetBrains Mono','Consolas','Courier New',monospace" font-size="22" fill="#1C1C1C">avnnt.github.io/portfolio ▮</text>
+</svg>
