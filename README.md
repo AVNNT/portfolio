@@ -1,12 +1,21 @@
 # @howaboutatip · Portfolio — deploy-ready
 
-Zwei Dateien, kein Build-Schritt:
+Kein Build-Schritt, alles statisch:
 
 ```
 final/
-├── index.html    — die komplette Seite (alles inline)
-└── og-card.svg   — Open-Graph-Card 1200×630 im Seitenstil
+├── index.html        — die komplette Seite (alles inline)
+├── og-card.png       — Open-Graph-Card 1200×630 (was Social-Plattformen anzeigen)
+├── og-card.svg       — Design-Quelle der Card (PNG daraus neu exportieren)
+├── assets/
+│   ├── dondownload.webp
+│   └── quicksketch.webp
+├── robots.txt
+└── sitemap.xml
 ```
+
+Wichtig: `og:image`/`twitter:image` zeigen auf **og-card.png**, nicht auf die SVG —
+X, Facebook und LinkedIn rendern keine SVG-Vorschaukarten.
 
 ## Lokal testen
 
@@ -16,7 +25,8 @@ final/
 
 1. Neues **öffentliches** Repo auf GitHub: **`portfolio`** (AVNNT/portfolio → URL `https://avnnt.github.io/portfolio/`).
    Wichtig: Repo heißt `portfolio`, damit `og:url`/`canonical`/`og:image` in der index.html stimmen.
-2. `index.html` + `og-card.svg` hochladen (oder per Git pushen, Branch `main`).
+2. Den kompletten Ordnerinhalt hochladen (`index.html`, `og-card.png`, `og-card.svg`,
+   `assets/`, `robots.txt`, `sitemap.xml`) — oder per Git pushen, Branch `main`.
 3. **Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save**.
 4. Live nach 1–2 Minuten.
 
@@ -24,7 +34,8 @@ final/
 
 - GitHub: `github.com/AVNNT` · X: `x.com/howaboutavndev` · E-Mail: `atipvietnghiem@gmail.com` (als HTML-Entities gegen Scraper)
 - Projekte: **DonDownload** (Screenshot aus dem Repo, 1280×800) und **QuickSketch** (itch.io-Cover, 1920×1080)
-- Skills: HTML, CSS, GDScript (Godot 4.7), JavaScript, Git & GitHub — „Currently learning: C" (TS/React/Electron sind DonDownloads Stack, keine Skill-Claims)
+  → beide lokal als WebP in `assets/` (Grund: keine Hotlinks, 528 KB → 37 KB beim Cover)
+- Skills: HTML, CSS, GDScript (Godot 4.7), JavaScript, Linux, Git & GitHub (TS/React/Electron sind DonDownloads Stack, keine Skill-Claims)
 - Dark Mode (🌙/☀️, localStorage + prefers-color-scheme), Typewriter-Headline, a11y (Skip-Link, focus-visible, reduced-motion)
 
 ## Anpassungen
