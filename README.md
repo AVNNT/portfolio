@@ -8,7 +8,6 @@ final/
 ├── og-card.png       — Open-Graph-Card 1200×630 (was Social-Plattformen anzeigen)
 ├── og-card.svg       — Design-Quelle der Card (PNG daraus neu exportieren)
 ├── assets/
-│   ├── dondownload.webp
 │   └── quicksketch.webp
 ├── robots.txt
 └── sitemap.xml
@@ -33,9 +32,9 @@ X, Facebook und LinkedIn rendern keine SVG-Vorschaukarten.
 ## Eingetragene echte Daten
 
 - GitHub: `github.com/AVNNT` · X: `x.com/howaboutavndev` · E-Mail: `atipvietnghiem@gmail.com` (als HTML-Entities gegen Scraper)
-- Projekte: **DonDownload** (Screenshot aus dem Repo, 1280×800) und **QuickSketch** (itch.io-Cover, 1920×1080)
-  → beide lokal als WebP in `assets/` (Grund: keine Hotlinks, 528 KB → 37 KB beim Cover)
-- Skills: HTML, CSS, GDScript (Godot 4.7), JavaScript, Linux, Git & GitHub (TS/React/Electron sind DonDownloads Stack, keine Skill-Claims)
+- Projekte: **QuickSketch** (itch.io-Cover, 1920×1080)
+  → lokal als WebP in `assets/` (Grund: keine Hotlinks, 528 KB → 37 KB beim Cover)
+- Skills: HTML, CSS, GDScript (Godot 4.7), JavaScript, Linux, Git & GitHub
 - Dark Mode (🌙/☀️, localStorage + prefers-color-scheme), Typewriter-Headline, a11y (Skip-Link, focus-visible, reduced-motion)
 
 ## Anpassungen
